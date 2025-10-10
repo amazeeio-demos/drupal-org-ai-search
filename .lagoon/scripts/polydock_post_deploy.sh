@@ -28,6 +28,7 @@ if [ ! -f "$LOCKFILE" ]; then
     echo "Syncing app image files"
     rsync -a files /app/web/sites/default
 
+
     cd /app
 
     if [ -f "$POLYDOCK_APP_IMAGE_DB_FILENAME" ]; then
@@ -85,11 +86,12 @@ if [ ! -f "$LOCKFILE" ]; then
         echo "Updating admin username to $POLYDOCK_GENERATED_APP_ADMIN_USERNAME"
         echo "update users_field_data set name='$POLYDOCK_GENERATED_APP_ADMIN_USERNAME' where name='admin'" | drush sql-cli
         drush cr
-    fi;
 
-    if [ ! -z "$POLYDOCK_GENERATED_APP_ADMIN_PASSWORD" ]; then
-        echo "Updating $POLYDOCK_GENERATED_APP_ADMIN_USERNAME password";
-        drush upwd "$POLYDOCK_GENERATED_APP_ADMIN_USERNAME" "$POLYDOCK_GENERATED_APP_ADMIN_PASSWORD"
+        if [ ! -z "$POLYDOCK_GENERATED_APP_ADMIN_PASSWORD" ]; then
+            echo "Updating $POLYDOCK_GENERATED_APP_ADMIN_USERNAME password";
+            drush upwd "$POLYDOCK_GENERATED_APP_ADMIN_USERNAME" "$POLYDOCK_GENERATED_APP_ADMIN_PASSWORD"
+        fi;
+
     fi;
 
     echo "Created $LOCKFILE to ensure we don't run more than once"
