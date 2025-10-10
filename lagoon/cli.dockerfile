@@ -1,0 +1,18 @@
+FROM uselagoon/php-8.4-cli-drupal:latest
+
+COPY composer.* /app/
+COPY assets /app/assets
+RUN composer install --no-dev
+
+# Add the provider.
+#RUN composer require drupal/ai_provider_amazeeio_recipe -W
+
+# Add the recipe
+#RUN composer require drupal/amazeeio_umami_search -W
+
+COPY . /app
+RUN mkdir -p -v -m775 /app/web/sites/default/files
+RUN fix-permissions /app/web/sites/default/settings.php
+
+# Define where the Drupal Root is located
+ENV WEBROOT=web
