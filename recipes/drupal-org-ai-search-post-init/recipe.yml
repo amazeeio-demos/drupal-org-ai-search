@@ -1,0 +1,21 @@
+name: 'drupal-org-ai-search post-init'
+type: AI
+description: 'Post-provider configuration for the Drupal AI Search demo: applies the amazee.ai Umami search recipe and wires the vector DB name from the provider settings.'
+recipes:
+  - amazeeio_umami_search
+input:
+  postgres_default_database:
+    data_type: string
+    description: The default PostgreSQL database name configured by the amazee.ai provider.
+    default:
+      source: config
+      config: ['ai_provider_amazeeio.settings', 'postgres_default_database']
+      # Used when the provider recipe has not been applied yet (the value is
+      # normally passed via --input or read from the provider settings).
+      fallback: ''
+config:
+  strict: false
+  actions:
+    search_api.server.umami_recipe_server:
+      setProperties:
+        backend_config.database_settings.database_name: ${postgres_default_database}

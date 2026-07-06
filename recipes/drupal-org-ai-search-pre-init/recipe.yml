@@ -1,0 +1,23 @@
+name: 'drupal-org-ai-search pre-init'
+type: AI
+description: 'Pre-provider configuration and content for the Drupal AI Search demo: AI modules, the recipe finder assistant, the chatbot block and a welcome block.'
+install:
+  - ai_agents
+  - ai_chatbot
+  - ai_provider_litellm
+  - ai_observability
+  - ai_provider_openai
+  - ai_search
+  - contact
+  - search_api_db
+config:
+  strict: false
+  actions:
+    user.role.anonymous:
+      grantPermissions:
+        - 'access deepchat api'
+        - 'access site-wide contact form'
+    user.role.authenticated:
+      grantPermissions:
+        - 'access deepchat api'
+        - 'access site-wide contact form'

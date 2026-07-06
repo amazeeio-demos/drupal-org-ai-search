@@ -1,0 +1,19 @@
+Apply the recipe over pre-existing config instead of hard-failing.
+
+Mirrors the (unreleased) 1.3.x commit on the amazeeio_umami_search project:
+core defaults recipe config to strict: true, which aborts when config in the
+recipe's config/ directory (e.g. the recipe_finder_assistant) already exists
+with different content. The demo pre-installs a newer agent-based assistant
+and chatbot block, so existing config must be left untouched.
+Drop this patch once amazeeio_umami_search > 1.3.0 is released.
+
+--- a/recipe.yml
++++ b/recipe.yml
+@@ -23,6 +23,7 @@ install:
+   - search_api
+   - search_api_db
+ config:
++  strict: false
+   actions:
+     search_api.server.umami_recipe_server:
+       setupVdbServerWithDefaults:
