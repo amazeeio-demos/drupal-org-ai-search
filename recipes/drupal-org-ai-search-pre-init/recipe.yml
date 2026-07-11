@@ -2,6 +2,9 @@ name: 'drupal-org-ai-search pre-init'
 type: AI
 description: 'Pre-provider configuration and content for the Drupal AI Search demo: AI modules, the recipe finder assistant, the chatbot block and a welcome block.'
 install:
+  # ai must be listed explicitly (not just via dependents) so the
+  # ai.settings config action below passes recipe validation.
+  - ai
   - ai_agents
   - ai_chatbot
   - ai_provider_litellm
