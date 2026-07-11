@@ -1,5 +1,5 @@
 {
-    "_hash": "347356e5669b19a73c32b83a546476b85d239db5438a6f1419286bca5bf34ec2",
+    "_hash": "af505e99245f387b7ea18721623a14f465a15999bf16370b079fb0648a4addf6",
     "patches": {
         "drush/drush": [
             {
@@ -7,18 +7,6 @@
                 "description": "Restore `drush recipe` with Drupal core >=11.4 (RecipeCommand moved to a new namespace)",
                 "url": "patches/drush-recipe-command-core-11.4.patch",
                 "sha256": "2bcb66a529e3186d913261f90a5d7cf9f6f6b0c22021377254c994ab41266eda",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "drupal/amazeeio_umami_search": [
-            {
-                "package": "drupal/amazeeio_umami_search",
-                "description": "Apply over pre-existing config (strict: false); drop when >1.3.0 released",
-                "url": "patches/amazeeio_umami_search-strict-false.patch",
-                "sha256": "ba8f07a80c8211d5e1883cb81120398457b11a7b51c16f70824ecf28872a01ab",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

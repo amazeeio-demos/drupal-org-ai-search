@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abda81cb71c3a9217a04788aec38a234",
+    "content-hash": "f4b847c0618d7247c6b733fbcc14be79",
     "packages": [
         {
             "name": "amazeeio/drupal_integrations",
@@ -1642,16 +1642,16 @@
         },
         {
             "name": "drupal/amazeeio_umami_search",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/amazeeio_umami_search.git",
-                "reference": "e962152381535a0d52464208f0a875c06da786f2"
+                "reference": "db69599992e1e77f6a98ff610d5916ef01546725"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.drupalcode.org/api/v4/projects/project%2Famazeeio_umami_search/repository/archive.zip?sha=e962152381535a0d52464208f0a875c06da786f2",
-                "reference": "e962152381535a0d52464208f0a875c06da786f2",
+                "url": "https://git.drupalcode.org/api/v4/projects/project%2Famazeeio_umami_search/repository/archive.zip?sha=db69599992e1e77f6a98ff610d5916ef01546725",
+                "reference": "db69599992e1e77f6a98ff610d5916ef01546725",
                 "shasum": ""
             },
             "require": {
@@ -1667,9 +1667,9 @@
             ],
             "description": "Adds amazee.ai AI search to the Umami demo.",
             "support": {
-                "source": "https://git.drupalcode.org/project/amazeeio_umami_search/-/tree/1.3.0"
+                "source": "https://git.drupalcode.org/project/amazeeio_umami_search/-/tree/1.3.1"
             },
-            "time": "2026-05-25T23:19:24+00:00"
+            "time": "2026-07-06T22:30:20+00:00"
         },
         {
             "name": "drupal/core",
