@@ -1,5 +1,8 @@
 FROM uselagoon/php-8.4-cli-drupal:latest AS cli
 
+# Headroom for composer / drush recipe installs (Lagoon default is 400M).
+ENV PHP_MEMORY_LIMIT=1024M
+
 # Set up scaffolding (composer install + settings.php) as an entrypoint.
 COPY .lagoon/scripts/scaffold.sh /lagoon/entrypoints/999-drupal-scaffold.sh
 
@@ -26,6 +29,8 @@ COPY --from=cli /app /app
 ENV WEBROOT=web
 
 FROM uselagoon/php-8.4-fpm:latest AS php
+
+ENV PHP_MEMORY_LIMIT=1024M
 
 COPY --from=cli /app /app
 

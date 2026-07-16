@@ -43,6 +43,14 @@ else
     --input=drupal-org-ai-search-post-init.postgres_default_database=$AI_DB_NAME \
     --input=amazeeio_umami_search.postgres_db_default_database=$AI_DB_NAME
 
+  # Demos don't self-update; remove the Update Manager stack so admins don't
+  # see "out of date" warnings. Per-module + `|| true` handles both the CMS
+  # demos (all three present) and search (only `update`).
+  echo "Uninstalling update-manager modules"
+  for module in automatic_updates update package_manager; do
+    drush -y pm:uninstall "$module" || true
+  done
+
   # Clear the cache and index the content.
   echo "Rebuilding the Drupal cache"
   drush cr
