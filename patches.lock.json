@@ -1,17 +1,4 @@
 {
-    "_hash": "af505e99245f387b7ea18721623a14f465a15999bf16370b079fb0648a4addf6",
-    "patches": {
-        "drush/drush": [
-            {
-                "package": "drush/drush",
-                "description": "Restore `drush recipe` with Drupal core >=11.4 (RecipeCommand moved to a new namespace)",
-                "url": "patches/drush-recipe-command-core-11.4.patch",
-                "sha256": "2bcb66a529e3186d913261f90a5d7cf9f6f6b0c22021377254c994ab41266eda",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ]
-    }
+    "_hash": "6142bfcb78f54dfbf5247ae5e463f25bdb8fff1890806e2e45aa81a59c211653",
+    "patches": []
 }

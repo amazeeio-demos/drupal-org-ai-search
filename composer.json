@@ -95,10 +95,6 @@
             }
         },
         "composer-exit-on-patch-failure": true,
-        "patches": {
-            "drush/drush": {
-                "Restore `drush recipe` with Drupal core >=11.4 (RecipeCommand moved to a new namespace)": "patches/drush-recipe-command-core-11.4.patch"
-            }
-        }
+        "patches": {}
     }
 }
