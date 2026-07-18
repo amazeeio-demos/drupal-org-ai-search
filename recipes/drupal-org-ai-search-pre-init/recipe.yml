@@ -7,9 +7,7 @@ install:
   - ai
   - ai_agents
   - ai_chatbot
-  - ai_provider_litellm
   - ai_observability
-  - ai_provider_openai
   - ai_search
   - contact
   - search_api_db
