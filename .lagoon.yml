@@ -1,2 +1,13 @@
 docker-compose-yaml: docker-compose.yml
 
+tasks:
+  post-rollout:
+    - run:
+        name: Run Drupal clear cache
+        command: |
+          if [ -f /app/web/sites/default/files/.lagoon_trial_installed ]; then
+            drush cr
+          else
+            echo "Site not installed yet, skipping cache rebuild"
+          fi
+        service: cli
