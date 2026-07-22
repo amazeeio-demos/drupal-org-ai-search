@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 09dd14c6-bfdf-4736-8d20-d859b8212bdd
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: ' 👋 Welcome to your Drupal AI Search Experience'
+  reusable:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_created:
+    -
+      value: 1781004052
+  field_body:
+    -
+      value: '<h3>A few housekeeping items to consider:</h3><ul><li data-list-item-id="e71245b4cdd51f60043d5c3d36f4d11bf">This demo showcases Drupal AI Search capabilities that are actively being developed by the community</li><li data-list-item-id="eb7c6672982f36a94833a902445543708">You may encounter occasional unexpected behaviors, especially when running multiple consecutive queries</li><li data-list-item-id="eb53a6b28a5c7dee98ac7a515c8fd7ae8">Search results reflect the limited content in our demo environment and may vary in a production setting</li><li data-list-item-id="e19453c20308676a1a36eb371c81a4473">Response times can fluctuate based on system load and query complexity</li></ul><h5><strong>Now that you''re aware of what to expect, let''s dive into exploring this powerful capability together.&nbsp;</strong></h5><h5><strong>Follow these simple steps to get started:</strong></h5><p><strong>Step 1: Click the HOME button</strong></p><p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfirsvHivXqfRu68rIlSCkUiqdJl0cRCY4YFSMi3MTaRjzS1GdFg6bVErC_9vyxZDYEFqanUKBVNfxhE5XcUHg3G6q8sZI-VOaar_UbxZy81jxPHGvwbADbXGqI_kUVVIYKw4_feg?key=0vBFuKzSgR_ZJcp8ITXZZ-6I" width="624" height="247"></p><p>&nbsp;</p><p><strong>Step 2: Search the site with the traditional search bar</strong></p><p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeWtaV35Y2MozSgzblC3Y01zjZYG7KZXo1HisMLagM9GBZVtAZhpf816svXNI2ojW1tyZWGP8Q0ttNLdjYAxFENG_5n_Gh1phdaHxqakpMzNjEetqcOiwcALfvz4QV4JeA47IPMVQ?key=0vBFuKzSgR_ZJcp8ITXZZ-6I" width="624" height="291"><br>&nbsp;</p><p>You will see there are <strong>ZERO</strong> search results</p><p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcYUE_dO1VnZEaoiWVgzDEGIiLfnN6OEUHr_1BW7cvpAJbQL861TKMEcNb6xwvv009c5JYeogvfpSostPC5yJfLALuG2DBAnnZVaOfTEd49KI3c9jb2WRJr33wNkAXUxs1x7KSO?key=0vBFuKzSgR_ZJcp8ITXZZ-6I" width="624" height="297"></p><p><strong>Step 3: Search “recipes inspired by Italy” in the Umami Recipe Bot</strong></p><p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeoUID6eBxTdZZqH7cV4THbvb7reX7VHFPHJ5inkBxNe8EbafElaiCwq_xXlPJw9Az9jCfrhFmObgdE-Yc_xM5XNPgpXvLYcKHn6gEJh0QGWaTMNhxZmCSqZzreF1-HsKnrX6ne2g?key=0vBFuKzSgR_ZJcp8ITXZZ-6I" width="624" height="309"></p><p><strong>With the Drupal AI Framework enabled, you will now see results</strong><br><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeBFnrBFN3r56nw5EkjmrNP4twzsD3DOzGGMjLlfobfREgBXj6X-vqMzN0XJKA_mrqBHPr2-BQExA8PjToeD_ws-rp6k2UFRAXN74LDUJ-R3ordGDWZW_ypW_r7APcEGbWwIqqjGw?key=0vBFuKzSgR_ZJcp8ITXZZ-6I" width="421" height="895"></p><p>&nbsp;</p><h5>Success! Explore what else you can do with Drupal AI search.&nbsp;<br><br><br>Need inspiration for what else to search? Here’s some prompts you can try on your own:</h5><ul><li data-list-item-id="ea7a513d13eca26bfe7f50eb16a28e21b">I want easy to prepare breakfast recipes that include tomatoes.</li><li data-list-item-id="ec0c8494e6807a1a5bcda031bd06ebd06">In my fridge I have ground beef, mushrooms, onion, and tomato, and I have a few pasta options in my pantry. What are some Italian dishes I can make?</li><li data-list-item-id="e5e15fdf8da2c4e679817225849c139ed">Can you adjust the Borscht with pork ribs recipe down to serve 2 people?</li><li data-list-item-id="eb4243b963982df2e7dd283a5607dbccd">Please discover recipes that include chocolate.<br><br>&nbsp;</li></ul>'
+      format: full_html

@@ -6,28 +6,27 @@
 ###################################################
 
 LOCKFILE="/app/web/sites/default/files/.polydock_post_deploy"
-APP_IMAGE_URL_DEFAULT="https://nginx.main.ai-trial-storage.us2.amazee.io/storage/drupal-org/search/app-data-image.tgz"
+APP_IMAGE_URL_DEFAULT="https://nginx.main.ai-trial-storage.us2.amazee.io/storage/drupal-org/search/app-data-image-20260722.tgz"
 POLYDOCK_APP_IMAGE_FILENAME="polydock_post_deploy_image.tgz"
 POLYDOCK_TMP="/tmp/polydock_post_deploy"
 POLYDOCK_APP_IMAGE_DB_FILENAME="/app/web/sites/default/files/polydock/db-image"
 
 mkdir -p $POLYDOCK_TMP
 
-if [ -z "POLYDOCK_APP_IMAGE_URL" ]; then
+if [ -z "$POLYDOCK_APP_IMAGE_URL" ]; then
     export POLYDOCK_APP_IMAGE_URL=$APP_IMAGE_URL_DEFAULT
 fi;
 
 if [ ! -f "$LOCKFILE" ]; then
     echo "This is the first time the script is running"
     cd $POLYDOCK_TMP
-    wget -O $POLYDOCK_APP_IMAGE_FILENAME -P $POLYDOCK_TMP $APP_IMAGE_URL_DEFAULT
+    wget -O $POLYDOCK_APP_IMAGE_FILENAME -P $POLYDOCK_TMP $POLYDOCK_APP_IMAGE_URL
 
     echo "Extracing app image"
     tar -zxf $POLYDOCK_APP_IMAGE_FILENAME
 
     echo "Syncing app image files"
     rsync -a files /app/web/sites/default
-
 
     cd /app
 
@@ -61,7 +60,7 @@ if [ ! -f "$LOCKFILE" ]; then
         echo "Importing amazee Private AI AI_DB_HOST_NAME"
         drush config:set ai_provider_amazeeio.settings postgres_host $AI_DB_HOST_NAME -y
 
-        echo "Importing amazee Private AI AI_DB_HOST_NAME"
+        echo "Importing amazee Private AI postgres port"
         drush config:set ai_provider_amazeeio.settings postgres_port 5432 -y
     fi;
 
@@ -74,12 +73,16 @@ if [ ! -f "$LOCKFILE" ]; then
     if [ ! -z "$AI_DB_USERNAME" ]; then
         echo "Importing amazee Private AI AI_DB_USERNAME"
         drush config:set ai_provider_amazeeio.settings postgres_username $AI_DB_USERNAME -y
-        drush config:set search_api.server.umami_recipe_server backend_config.database_settings.database_name $AI_DB_NAME -y
     fi;
 
-    if [ ! -z "$AI_DB_USERNAME" ]; then
-        echo "Resaving umami_recipe_server to create tables"
-        drush entity:save search_api_server umami_recipe_server
+    if [ ! -z "$AI_DB_NAME" ]; then
+        # Re-wire the search server to this trial's pgvector database and
+        # re-save it (creates the vector collection). Replaces the previous
+        # hand-rolled config:set + entity:save block.
+        echo "Applying the drupal-org-ai-search-post-init recipe"
+        drush recipe /app/recipes/drupal-org-ai-search-post-init \
+          --input=drupal-org-ai-search-post-init.postgres_default_database=$AI_DB_NAME \
+          --input=amazeeio_umami_search.postgres_db_default_database=$AI_DB_NAME
     fi;
 
     if [ ! -z "$POLYDOCK_GENERATED_APP_ADMIN_USERNAME" ]; then
@@ -103,4 +106,4 @@ cd /app
 echo "Now running the tasks that should run on every deploy"
 drush cr
 drush sapi-r -y
-drush sapi-i -
+drush sapi-i -y

@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ai_chatbot
+  theme:
+    - umami
+id: umami_recipebot
+theme: umami
+region: bottom
+weight: 0
+provider: null
+plugin: ai_deepchat_block
+settings:
+  id: ai_deepchat_block
+  label: 'Umami Recipe Bot'
+  label_display: visible
+  provider: ai_chatbot
+  ai_assistant: recipe_finder_assistant
+  bot_name: 'Generic Chatbot'
+  bot_image: /core/misc/druplicon.png
+  use_username: 1
+  default_username: User
+  use_avatar: 1
+  default_avatar: /core/misc/favicon.ico
+  first_message: 'Hello! Tell me what kind of recipes you are looking for?'
+  stream: 0
+  toggle_state: remember
+  width: 400px
+  height: 500px
+  placement: bottom-right
+  show_structured_results: false
+  show_copy_icon: true
+  collapse_minimal: false
+  style_file: 'module:ai_chatbot:bard.yml'
+visibility: {  }

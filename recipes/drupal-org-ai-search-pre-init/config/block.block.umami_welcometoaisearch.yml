@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:09dd14c6-bfdf-4736-8d20-d859b8212bdd'
+  module:
+    - block_content
+    - system
+  theme:
+    - umami
+id: umami_welcometoaisearch
+theme: umami
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:09dd14c6-bfdf-4736-8d20-d859b8212bdd'
+settings:
+  id: 'block_content:09dd14c6-bfdf-4736-8d20-d859b8212bdd'
+  label: 'Welcome to AI Search'
+  label_display: visible
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/user/*'
