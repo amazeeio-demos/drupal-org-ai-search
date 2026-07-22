@@ -6,21 +6,21 @@
 ###################################################
 
 LOCKFILE="/app/web/sites/default/files/.polydock_post_deploy"
-APP_IMAGE_URL_DEFAULT="https://nginx.main.ai-trial-storage.us2.amazee.io/storage/drupal-org/search/app-data-image.tgz"
+APP_IMAGE_URL_DEFAULT="https://nginx.main.ai-trial-storage.us2.amazee.io/storage/drupal-org/search/app-data-image-20260722.tgz"
 POLYDOCK_APP_IMAGE_FILENAME="polydock_post_deploy_image.tgz"
 POLYDOCK_TMP="/tmp/polydock_post_deploy"
 POLYDOCK_APP_IMAGE_DB_FILENAME="/app/web/sites/default/files/polydock/db-image"
 
 mkdir -p $POLYDOCK_TMP
 
-if [ -z "POLYDOCK_APP_IMAGE_URL" ]; then
+if [ -z "$POLYDOCK_APP_IMAGE_URL" ]; then
     export POLYDOCK_APP_IMAGE_URL=$APP_IMAGE_URL_DEFAULT
 fi;
 
 if [ ! -f "$LOCKFILE" ]; then
     echo "This is the first time the script is running"
     cd $POLYDOCK_TMP
-    wget -O $POLYDOCK_APP_IMAGE_FILENAME -P $POLYDOCK_TMP $APP_IMAGE_URL_DEFAULT
+    wget -O $POLYDOCK_APP_IMAGE_FILENAME -P $POLYDOCK_TMP $POLYDOCK_APP_IMAGE_URL
 
     echo "Extracing app image"
     tar -zxf $POLYDOCK_APP_IMAGE_FILENAME
